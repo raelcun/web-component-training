@@ -1,0 +1,33 @@
+- what are web components?
+  - combination of custom elements, html templates, and shadow dom
+    - https://www.webcomponents.org/specs
+  - allow us to publish semantic, encapsulated html elements that have everything they need to work bundled inside
+- why web components?
+  - framework agnostic
+  - semantics (easier to reason about than random divs everywhere)
+  - supported on firefox 63+, chrome 67+, safari 10+, edge 76+, ie11+ (with polyfill)
+- specification
+  - constructor (cannot render stuff)
+  - connectedCallback
+    - invoked when element is added to DOM, so we can safely render inside the web component
+    - delay rendering, fetching, etc to this part of the lifecycle
+  - disconnectedCallback
+    - invoked when element is deleted from DOM
+    - use this to do cleanup like unregister event handlers to avoid memory leaks
+  - attributeChangedCallback
+    - attributes are the only logical way to pass data into your web component
+    - whenever an attribute on your web component changes externally, this function will be called
+      - has the attribute name, old value, and new value
+  - adoptedCallback
+    - invoked when parent document changes, mainly used for iframes
+- demo
+- references
+  - spec: https://www.webcomponents.org/specs
+  - https://webcomponents.dev/
+  - https://open-wc.org/
+  - https://www.npmjs.com/package/react-shadow-dom-retarget-events
+  - prod ready libraries to help: lit-element, Polymer, Stencil
+  - react libraries: https://github.com/bitovi/react-to-webcomponent and remount
+    - not production ready, just look at them, don't use in prod :)
+- upcoming features
+  - scoped custom element registry

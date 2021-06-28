@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      * {
+        color: red;
+      }
+    </style>
+
+    <script src="https://unpkg.com/react@18.0.0-alpha-e6be2d531/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.0.0-alpha-e6be2d531/umd/react-dom.development.js"></script>
+
+    <script src="simple-button-0.js"></script>
+    <script src="simple-button-1.js"></script>
+    <script src="simple-button-2.js"></script>
+    <script src="simple-button-3.js"></script>
+    <script src="simple-button-4.js"></script>
+    <script src="simple-react-button-1.js"></script>
+    <script src="app-wrapper.js"></script>
+  </head>
+  <body>
+    <simple-button-0></simple-button-0>
+    <simple-button-1 button-content="Custom Name"></simple-button-1>
+    <simple-button-2></simple-button-2>
+
+    <template id="simple-button-3-content">
+      <style>
+        * {
+          color: blue;
+        }
+      </style>
+      <button>Simple3</button>
+    </template>
+    <simple-button-3></simple-button-3>
+
+    <simple-button-4></simple-button-4>
+    <simple-button-4>
+      <span slot="buttonContent">Simple4</span>
+    </simple-button-4>
+
+    <simple-react-button-1></simple-react-button-1>
+
+    <simple-react-button-1 onclick="console.log(arguments)"></simple-react-button-1>
+
+    <app-wrapper></app-wrapper>
+    <script>
+      setInterval(
+        () => document.getElementsByTagName('app-wrapper')[0].setAttribute('button-name', Math.random()),
+        1000
+      )
+    </script>
+  </body>
+</html>
